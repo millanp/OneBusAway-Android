@@ -13,7 +13,10 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.onebusaway.android.io.elements.BikeRackElement;
 import org.onebusaway.android.io.elements.ObaArrivalInfo;
+import org.onebusaway.android.io.request.bikeOnBus.BikeRackRequest;
+import org.onebusaway.android.io.request.bikeOnBus.BikeRackResponse;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -42,39 +45,16 @@ public class BikeRackUtils {
 
     }
 
-    public static final void populateWithBikeStatus(Context context, ObaArrivalInfo[] arrivals) {
-        String[] vehicleIds = new String[arrivals.length];
-        for (int i = 0; i < arrivals.length; i++) {
-            vehicleIds[i] = arrivals[i].getVehicleId();
-        }
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String urlStub = "https://dummy3.azurewebsites.net/api/DummyData?code=8FPnxWPvytYFiXvnHLop9at6/a1vDVaUtNYvklYJ7hGKSsw/VMSjag==&queryBody=";
-        Gson gson = new Gson();
-        JSONObject body;
-        try {
-            String jsonString = "{\"vehicleIds\": " + gson.toJson(vehicleIds) + "}";
-            urlStub += URLEncoder.encode(jsonString, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
+//    public static final void populateWithBikeStatus(Context context, ObaArrivalInfo[] arrivals) {
+//        String[] vehicleIds = new String[arrivals.length];
+//        for (int i = 0; i < arrivals.length; i++) {
+//            vehicleIds[i] = arrivals[i].getVehicleId();
+//        }
+//        BikeRackResponse resp = BikeRackRequest.newRequest(context, vehicleIds).call();
+//        String[] elemArray = resp.getAvailableSpotsArray();
+//        for (int i = 0; i < elemArray.length; i++) {
+//            arrivals[i].setBikeSpaces(Integer.parseInt(elemArray[i]));
+//        }
+//    }
 
-        }
-
-        RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, urlStub, new JSONObject(), future, future);
-        requestQueue.add(request);
-        try {
-            JSONObject result = future.get();
-            try {
-                JSONArray response = result.getJSONArray("BikeSpacesArray");
-                for (int i = 0; i < response.length(); i++) {
-                    arrivals[i].setBikeSpaces(response.getInt(i));
-                }
-            } catch (JSONException e) {
-
-            }
-        } catch (InterruptedException e) {
-
-        } catch (ExecutionException e) {
-
-        }
-    }
 }

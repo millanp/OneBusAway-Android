@@ -44,23 +44,23 @@ import java.util.concurrent.ExecutionException;
  */
 public class BikeRackResponse extends ObaResponse {
 
-    private static final class Data {
+//    private static final class Data {
+//
+//        private static final Data EMPTY_OBJECT = new Data();
+//
+//        private final String[] BikeSpacesArray = new String[]{};
+//    }
 
-        private static final Data EMPTY_OBJECT = new Data();
+    private final String[] BikeSpacesArray;
 
-        private final BikeRackElement entry = BikeRackElement.EMPTY_OBJECT;
-    }
-
-    private final Data data;
-
-    private BikeRackResponse() {
-        data = Data.EMPTY_OBJECT;
+    BikeRackResponse() {
+        BikeSpacesArray = new String[]{};
     }
 
     // TODO: Make this work properly with the regions API
 
-    public int getAvailableSpots() {
-        return data.entry.getBikeSpaces();
+    public String[] getAvailableSpotsArray() {
+        return BikeSpacesArray;
     }
 
 }

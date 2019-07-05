@@ -19,10 +19,12 @@ package org.onebusaway.android.io.request;
 import org.onebusaway.android.R;
 import org.onebusaway.android.app.Application;
 import org.onebusaway.android.io.ObaApi;
+import org.onebusaway.android.io.elements.ObaRegion;
 
 import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -100,12 +102,14 @@ public final class ObaRegionsRequest extends RequestBase implements
     }
 
     private ObaRegionsResponse getRegionFromResource() {
+        // TODO: This is where the region deserialization is happening
         ObaRegionsResponse response = null;
 
         InputStream is = Application.get().getApplicationContext().getResources()
                 .openRawResource(R.raw.regions_v3);
         ObaApi.SerializationHandler handler = ObaApi.getSerializer(ObaRegionsResponse.class);
         response = handler.deserialize(new InputStreamReader(is), ObaRegionsResponse.class);
+        Log.e("ObaRegionsRequest", "read from app resources: ");
         if (response == null) {
             response = handler.createFromError(ObaRegionsResponse.class, ObaApi.OBA_INTERNAL_ERROR,
                     "Json error");

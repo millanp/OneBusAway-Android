@@ -336,7 +336,7 @@ public class RegionUtils {
     public synchronized static ArrayList<ObaRegion> getRegions(Context context,
             boolean forceReload) {
         return RegionUtils.getRegionsFromResources(context);
-        // TODO: how to draw regions from the server properly? cooperate with OBA?
+        // TODO MURS: how to draw regions from the server properly? cooperate with OBA?
 //        ArrayList<ObaRegion> results;
 //        if (!forceReload) {
 //            //

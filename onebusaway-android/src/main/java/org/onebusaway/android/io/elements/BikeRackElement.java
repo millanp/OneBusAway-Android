@@ -5,14 +5,14 @@ public final class BikeRackElement {
 
     public static final BikeRackElement[] EMPTY_ARRAY = new BikeRackElement[]{};
 
-    private final int bikes;
+    private String[] BikeSpacesArray;
 
     private BikeRackElement() {
-        bikes = 2;
+        BikeSpacesArray = new String[0];
     }
 
-    public int getBikeSpaces() {
-        return bikes;
+    public String[] getBikeSpaces() {
+        return BikeSpacesArray;
     }
 
 

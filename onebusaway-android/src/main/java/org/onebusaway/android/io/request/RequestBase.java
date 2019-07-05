@@ -74,10 +74,8 @@ public class RequestBase {
         protected BuilderBase(Context context, ObaContext obaContext, String path) {
             mContext = context;
             mObaContext = obaContext;
-            Log.e(TAG, "HELLO");
             mBuilder = new Uri.Builder();
             mBuilder.path(path);
-            Log.e(TAG, mBuilder.toString());
         }
 
         protected static String getPathWithId(String pathElement, String id) {
@@ -92,13 +90,14 @@ public class RequestBase {
             ObaContext context = (mObaContext != null) ? mObaContext : ObaApi.getDefaultContext();
             if (mIsOtp) {
                 context.setBaseOtpUrl(mContext, mBuilder);
-                Log.e("RequestBase", "mBuilder is " + mBuilder.toString());
+                Log.d("RequestBase", "mBuilder is " + mBuilder.toString());
             } else if (mIsBikeServer) {
                 context.setBaseBikeRackUrl(mContext, mBuilder);
-                Log.e("RequestBase", "mBuilder is " + mBuilder.toString());
+
+                Log.d("RequestBase", "mBuilder is " + mBuilder.toString());
             } else {
                 context.setBaseUrl(mContext, mBuilder);
-                Log.e("RequestBase", "mBuilder is " + mBuilder.toString());
+                Log.d("RequestBase", "mBuilder is " + mBuilder.toString());
                 context.setAppInfo(mBuilder);
                 mBuilder.appendQueryParameter("version", "2");
                 mBuilder.appendQueryParameter("key", context.getApiKey());

@@ -108,7 +108,7 @@ public class ObaContext {
         String otpBaseUrl = Application.get().getCustomOtpApiUrl();
         if (TextUtils.isEmpty(otpBaseUrl)) {
             // Use the current region OTP base URL
-            otpBaseUrl = Application.get().getCurrentRegion().getBikeRackBaseUrl();
+            otpBaseUrl = Application.get().getCurrentRegion().getOtpBaseUrl();
             Log.d(TAG, "Using default region OTP API URL '" + otpBaseUrl + "'.");
         } else {
             Log.d(TAG, "Using custom OTP API URL set by user '" + otpBaseUrl + "'.");
@@ -117,7 +117,7 @@ public class ObaContext {
     }
 
     public void setBaseBikeRackUrl(Context context, Uri.Builder builder) {
-        setUrl(context, builder, "https://onebikeaway.free.beeceptor.com"); // TODO store this properly!
+        setUrl(context, builder, Application.get().getCurrentRegion().getBikeRackBaseUrl()); // TODO store this properly!
     }
 
     /**
@@ -161,6 +161,7 @@ public class ObaContext {
         builder.scheme(baseUrl.getScheme());
         builder.encodedAuthority(baseUrl.getEncodedAuthority());
         builder.encodedPath(path.build().getEncodedPath());
+        Log.e("ObaContext", "full url: " + builder.toString());
     }
 
     @Override

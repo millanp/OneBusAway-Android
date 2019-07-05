@@ -59,21 +59,15 @@ public class ArrivalsListLoader extends AsyncTaskLoader<ObaArrivalInfoResponse> 
     public ObaArrivalInfoResponse loadInBackground() {
         ObaArrivalInfoResponse resp = ObaArrivalInfoRequest
                 .newRequest(getContext(), mStopId, mMinutesAfter).call();
+
         ObaArrivalInfo[] arrivals = resp.getArrivalInfo();
-        double start = System.currentTimeMillis();
-//        for (ObaArrivalInfo arrival : arrivals) {
-////            TODO: Use the proper request format rather than a util function
-////            BikeRackResponse bikeResp = BikeRackRequest
-////                    .newRequest(getContext(), arrival.getVehicleId()).call();
-////            Log.e("ArrivalsListAdapterStyleA", "bikeResp: " + bikeResp.getAvailableSpots());
-////            arrival.setBikeSpaces(bikeResp.getAvailableSpots(getContext(), arrival.getVehicleId()));
-//
-//            arrival.setBikeSpaces(BikeRackUtils.getAvailableSpots(getContext(), arrival.getVehicleId()));
-//        }
-        BikeRackUtils.populateWithBikeStatus(getContext(), arrivals);
-        double end = System.currentTimeMillis();
-        Log.e("ArrivalsListLoader", "elapsed time to load: " + (end - start) / 1000.0);
-        resp.setArrivalInfo(arrivals);
+        BikeRackResponse bikeResp = BikeRackRequest
+                .newRequest(getContext(), arrivals).call();
+        String[] bikeStatusArray = bikeResp.getAvailableSpotsArray();
+        for (int i = 0; i < arrivals.length; i++) {
+            arrivals[i].setBikeSpaces(Integer.parseInt(bikeStatusArray[i]));
+        }
+
         return resp;
     }
 

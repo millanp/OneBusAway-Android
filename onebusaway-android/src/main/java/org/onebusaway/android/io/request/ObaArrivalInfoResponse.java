@@ -87,9 +87,6 @@ public final class ObaArrivalInfoResponse extends ObaResponseWithRefs {
     public ObaArrivalInfo[] getArrivalInfo() {
         return data.entry.arrivalsAndDepartures;
     }
-    public void setArrivalInfo(ObaArrivalInfo[] newArrivals) {
-        data.entry.arrivalsAndDepartures = newArrivals;
-    }
 
     public List<ObaSituation> getSituations() {
         return data.references.getSituations(data.entry.situationIds);

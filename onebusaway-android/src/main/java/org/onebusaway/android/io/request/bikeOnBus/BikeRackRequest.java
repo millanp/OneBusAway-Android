@@ -19,14 +19,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
+import org.onebusaway.android.io.elements.ObaArrivalInfo;
 import org.onebusaway.android.io.request.RequestBase;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.concurrent.Callable;
 
 /**
- * Request to retrieve the bike stations from OTP server.
+ * Request to retrieve the number of bikes on the rack for each of a list of bus arrivals.
  *
- * Created by carvalhorr on 7/13/17.
  */
 public class BikeRackRequest extends RequestBase implements Callable<BikeRackResponse> {
 
@@ -36,8 +40,8 @@ public class BikeRackRequest extends RequestBase implements Callable<BikeRackRes
 
     public static class Builder extends BuilderBase {
 
-        public Builder(Context context, String vehicleId) {
-            super(context, getUrl(vehicleId));
+        public Builder(Context context, String[] vehicleIds) {
+            super(context, getUrl(vehicleIds));
             setIsBikeServer(true);
         }
 
@@ -45,8 +49,15 @@ public class BikeRackRequest extends RequestBase implements Callable<BikeRackRes
             return new BikeRackRequest(buildUri());
         }
 
-        private static String getUrl(String vehicleId){
-            return "bikecount/bus/" + vehicleId;
+        private static String getUrl(String[] vehicleIds){
+            Gson gson = new Gson();
+            String jsonString = "{\"vehicleIds\": " + gson.toJson(vehicleIds) + "}";
+            try {
+                return "?code=8FPnxWPvytYFiXvnHLop9at6/a1vDVaUtNYvklYJ7hGKSsw/VMSjag==&queryBody=" + URLEncoder.encode(jsonString, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
     }
 
@@ -54,11 +65,15 @@ public class BikeRackRequest extends RequestBase implements Callable<BikeRackRes
      * Helper method to construct new instances.
      *
      * @param context The package context.
-     * @param vehicleId The ID of the bus being queried; for example "1_7416"
+     * @param arrivals An array of the arrival objects being queried
      * @return
      */
-    public static BikeRackRequest newRequest(Context context, String vehicleId) {
-        return new BikeRackRequest.Builder(context, vehicleId).build();
+    public static BikeRackRequest newRequest(Context context, ObaArrivalInfo[] arrivals) {
+        String[] vehicleIds = new String[arrivals.length];
+        for (int i = 0; i < arrivals.length; i++) {
+            vehicleIds[i] = arrivals[i].getVehicleId();
+        }
+        return new BikeRackRequest.Builder(context, vehicleIds).build();
     }
 
     @Override
