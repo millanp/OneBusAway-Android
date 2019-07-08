@@ -130,6 +130,9 @@
     <color name="bikeshare_small_marker_dark">#3a4677</color>
     <color name="bikeshare_small_marker_light">#46558f</color>
 
+    <!-- Bike rack status indicator -->
+    <color name="bike_rack_status_background">#ededed</color>
+
     <!-- Custom Zoom Button -->
     <color name="zoom_btn_drop_shadow_layer1">#20C9C9C9</color>
 
