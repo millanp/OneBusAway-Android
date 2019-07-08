@@ -51,15 +51,15 @@ public class BikeRackResponse extends ObaResponse {
 //        private final String[] BikeSpacesArray = new String[]{};
 //    }
 
-    private final String[] BikeSpacesArray;
+    private final Integer[] BikeSpacesArray;
 
     BikeRackResponse() {
-        BikeSpacesArray = new String[]{};
+        BikeSpacesArray = new Integer[]{};
     }
 
     // TODO: Make this work properly with the regions API
 
-    public String[] getAvailableSpotsArray() {
+    public Integer[] getAvailableSpotsArray() {
         return BikeSpacesArray;
     }
 

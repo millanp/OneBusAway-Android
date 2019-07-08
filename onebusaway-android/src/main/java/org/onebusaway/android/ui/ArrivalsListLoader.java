@@ -63,9 +63,9 @@ public class ArrivalsListLoader extends AsyncTaskLoader<ObaArrivalInfoResponse> 
         ObaArrivalInfo[] arrivals = resp.getArrivalInfo();
         BikeRackResponse bikeResp = BikeRackRequest
                 .newRequest(getContext(), arrivals).call();
-        String[] bikeStatusArray = bikeResp.getAvailableSpotsArray();
+        Integer[] bikeStatusArray = bikeResp.getAvailableSpotsArray();
         for (int i = 0; i < arrivals.length; i++) {
-            arrivals[i].setBikeSpaces(Integer.parseInt(bikeStatusArray[i]));
+            arrivals[i].setBikeSpaces(bikeStatusArray[i]);
         }
 
         return resp;
