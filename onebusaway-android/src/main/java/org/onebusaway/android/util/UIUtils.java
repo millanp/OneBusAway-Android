@@ -2005,7 +2005,7 @@ public final class UIUtils {
 
     public static void setBikeSpaceColor(Context context, ImageView[] bikes, int spacesAvailable) {
         for (ImageView bike : bikes) {
-            ImageViewCompat.setImageTintList(bike, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.stop_info_occupancy_historical)));
+            ImageViewCompat.setImageTintList(bike, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.quantum_googgreen)));
         }
         for (int i = bikes.length; i > spacesAvailable; i--) {
             ImageViewCompat.setImageTintList(bikes[i-1], ColorStateList.valueOf(ContextCompat.getColor(context, R.color.shortcut_background)));

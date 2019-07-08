@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toStartOf="@id/bikesilhouette2"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:srcCompat="@drawable/ic_directions_bike"
-        android:tint="@color/stop_info_occupancy_historical" />
+        android:tint="@color/quantum_googgreen700" />
 <!--shortcut_background-->
     <ImageView
         android:id="@+id/bikesilhouette2"
@@ -34,8 +34,7 @@
         android:layout_marginLeft="@dimen/occupancy_margin"
         app:srcCompat="@drawable/ic_directions_bike"
         android:tint="@color/stop_info_occupancy_historical" />
-
-    <org.onebusaway.android.ui.BikeStatusImageView
+    <ImageView
         android:id="@+id/bikesilhouette3"
         android:layout_width="@dimen/occupancy"
         android:layout_height="@dimen/occupancy"
