@@ -35,7 +35,7 @@
         app:srcCompat="@drawable/ic_directions_bike"
         android:tint="@color/stop_info_occupancy_historical" />
 
-    <ImageView
+    <org.onebusaway.android.ui.BikeStatusImageView
         android:id="@+id/bikesilhouette3"
         android:layout_width="@dimen/occupancy"
         android:layout_height="@dimen/occupancy"
