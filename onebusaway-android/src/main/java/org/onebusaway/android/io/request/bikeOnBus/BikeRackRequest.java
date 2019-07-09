@@ -21,6 +21,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
+import org.onebusaway.android.R;
 import org.onebusaway.android.io.elements.ObaArrivalInfo;
 import org.onebusaway.android.io.request.RequestBase;
 
@@ -41,7 +42,10 @@ public class BikeRackRequest extends RequestBase implements Callable<BikeRackRes
     public static class Builder extends BuilderBase {
 
         public Builder(Context context, String[] vehicleIds) {
-            super(context, getUrl(vehicleIds));
+            super(context,"");
+            Gson gson = new Gson();
+            mBuilder.appendQueryParameter("code", context.getString(R.string.bike_rack_api_code));
+            mBuilder.appendQueryParameter("queryBody", "{\"vehicleIds\": " + gson.toJson(vehicleIds) + "}");
             setIsBikeServer(true);
         }
 
@@ -49,16 +53,6 @@ public class BikeRackRequest extends RequestBase implements Callable<BikeRackRes
             return new BikeRackRequest(buildUri());
         }
 
-        private static String getUrl(String[] vehicleIds){
-            Gson gson = new Gson();
-            String jsonString = "{\"vehicleIds\": " + gson.toJson(vehicleIds) + "}";
-            try {
-                return "?code=8FPnxWPvytYFiXvnHLop9at6/a1vDVaUtNYvklYJ7hGKSsw/VMSjag==&queryBody=" + URLEncoder.encode(jsonString, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
     }
 
     /**

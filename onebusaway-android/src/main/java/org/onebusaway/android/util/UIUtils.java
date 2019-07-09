@@ -385,7 +385,7 @@ public final class UIUtils {
     /**
      * Returns a list of route display names from a serialized list of route display names
      * <p/>
-     * See {@link #serializeRouteDisplayNames(ObaStop, java.util.HashMap)}
+     * See {@link #serializeRouteDisplayNames(ObaStop, HashMap)}
      *
      * @param serializedRouteDisplayNames comma-separate list of routeIds from serializeRouteDisplayNames()
      * @return list of route display names

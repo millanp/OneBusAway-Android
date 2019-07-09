@@ -118,6 +118,8 @@ public class ArrivalsListAdapterStyleA extends ArrivalsListAdapterBase<ArrivalIn
                     android.R.color.transparent);
             realtimeView.setVisibility(View.VISIBLE);
             bikeStatusBar.setVisibility(View.VISIBLE);
+            bikeStatusBar.setContentDescription(arrivalInfo.getBikeSpaces() +
+                    context.getString(R.string.bike_status_content_desc_suffix));
             UIUtils.setBikeSpaceColor(context, bikes, arrivalInfo.getBikeSpaces());
         } else {
             realtimeView.setVisibility(View.INVISIBLE);

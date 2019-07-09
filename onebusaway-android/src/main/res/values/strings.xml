@@ -1123,4 +1123,6 @@
     <string name="es_msg_general_signin_success">Signed into Embedded Social</string>
     <string name="es_msg_general_signout_success">Signed out of Embedded Social</string>
     <string name="es_msg_general_account_deleted">Embedded Social account deleted</string>
+    <string name="bike_status_content_desc_suffix">bike spaces available</string>
+    <string name="bike_rack_api_code">8FPnxWPvytYFiXvnHLop9at6/a1vDVaUtNYvklYJ7hGKSsw/VMSjag==</string>
 </resources>
