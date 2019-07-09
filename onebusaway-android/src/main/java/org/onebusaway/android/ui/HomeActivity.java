@@ -1477,7 +1477,6 @@ public class HomeActivity extends AppCompatActivity
         callbacks.add(mMapFragment);
         callbacks.add(this);
         ObaRegionsTask task = new ObaRegionsTask(this, callbacks, forceReload, showProgressDialog);
-        Log.e("HomeActivity", "Executing OBARegionsTask");
         task.execute();
     }
 

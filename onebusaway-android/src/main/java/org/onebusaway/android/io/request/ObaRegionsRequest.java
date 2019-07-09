@@ -109,7 +109,6 @@ public final class ObaRegionsRequest extends RequestBase implements
                 .openRawResource(R.raw.regions_v3);
         ObaApi.SerializationHandler handler = ObaApi.getSerializer(ObaRegionsResponse.class);
         response = handler.deserialize(new InputStreamReader(is), ObaRegionsResponse.class);
-        Log.e("ObaRegionsRequest", "read from app resources: ");
         if (response == null) {
             response = handler.createFromError(ObaRegionsResponse.class, ObaApi.OBA_INTERNAL_ERROR,
                     "Json error");

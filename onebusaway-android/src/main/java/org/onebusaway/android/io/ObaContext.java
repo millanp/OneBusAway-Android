@@ -161,7 +161,6 @@ public class ObaContext {
         builder.scheme(baseUrl.getScheme());
         builder.encodedAuthority(baseUrl.getEncodedAuthority());
         builder.encodedPath(path.build().getEncodedPath());
-        Log.e("ObaContext", "full url: " + builder.toString());
     }
 
     @Override

@@ -136,9 +136,7 @@ public class ObaRegionsTask extends AsyncTask<Void, Integer, ArrayList<ObaRegion
             //This is a catastrophic failure to load region info from all sources
             return;
         }
-
-        Log.e("ObaRegionsTask", "on post execute has been called");
-
+        
         // Dismiss the dialog before calling the callbacks to avoid errors referencing the dialog later
         if (mShowProgressDialog && UIUtils.canManageDialog(mContext) && mProgressDialog
                 .isShowing()) {

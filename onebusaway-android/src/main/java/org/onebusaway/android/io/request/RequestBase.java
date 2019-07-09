@@ -145,7 +145,6 @@ public class RequestBase {
         ObaConnection conn = null;
         try {
             conn = ObaApi.getDefaultContext().getConnectionFactory().newConnection(mUri);
-            Log.e("RequestBase","mUri is " + mUri.toString());
             Reader reader;
             if (mPostData != null) {
                 reader = conn.post(mPostData);
@@ -159,7 +158,6 @@ public class RequestBase {
                         return handler.createFromError(cls, responseCode, "");
                     }
                 }
-                Log.e("RequestBase","getting from " + mUri);
                 reader = conn.get();
             }
             T t = handler.deserialize(reader, cls);
