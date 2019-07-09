@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toStartOf="@id/bikesilhouette2"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:srcCompat="@drawable/ic_directions_bike"
-        android:tint="@color/quantum_googgreen" />
+        android:tint="@color/quantum_googgreen900" />
 <!--shortcut_background-->
     <ImageView
         android:id="@+id/bikesilhouette2"
@@ -33,7 +33,7 @@
         android:layout_marginStart="@dimen/bike_rack_status_margin"
         android:layout_marginLeft="@dimen/bike_rack_status_margin"
         app:srcCompat="@drawable/ic_directions_bike"
-        android:tint="@color/quantum_googgreen" />
+        android:tint="@color/quantum_googgreen900" />
     <ImageView
         android:id="@+id/bikesilhouette3"
         android:layout_width="@dimen/bike_rack_status"
@@ -47,6 +47,6 @@
         app:layout_constraintStart_toEndOf="@id/bikesilhouette2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_directions_bike"
-        android:tint="@color/quantum_googgreen" />
+        android:tint="@color/bike_rack_icon_occupied" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

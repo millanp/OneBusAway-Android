@@ -132,6 +132,7 @@
 
     <!-- Bike rack status indicator -->
     <color name="bike_rack_status_background">#ededed</color>
+    <color name="bike_rack_icon_occupied">#878787</color>
 
     <!-- Custom Zoom Button -->
     <color name="zoom_btn_drop_shadow_layer1">#20C9C9C9</color>
