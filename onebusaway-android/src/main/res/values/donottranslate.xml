@@ -21,6 +21,9 @@
     <string name="apiv2_key">AIzaSyBxVM57hZ2WLRgtixDs_G5BGbK90mM5S5U</string>
     <string name="android_maps_v2_market_url">market://details?id=com.google.android.apps.maps</string>
 
+    <!--Bike rack status API-->
+    <string name="bike_rack_api_code">8FPnxWPvytYFiXvnHLop9at6/a1vDVaUtNYvklYJ7hGKSsw/VMSjag==</string>
+
     <!-- Preference keys -->
     <string name="preference_key_region">preference_region</string>
     <string name="preference_key_oba_api_url">preferences_oba_api_url</string>

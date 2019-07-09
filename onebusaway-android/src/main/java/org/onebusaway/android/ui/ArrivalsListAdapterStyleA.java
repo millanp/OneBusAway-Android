@@ -17,6 +17,7 @@ package org.onebusaway.android.ui;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.Log;
@@ -118,8 +119,12 @@ public class ArrivalsListAdapterStyleA extends ArrivalsListAdapterBase<ArrivalIn
                     android.R.color.transparent);
             realtimeView.setVisibility(View.VISIBLE);
             bikeStatusBar.setVisibility(View.VISIBLE);
-            bikeStatusBar.setContentDescription(arrivalInfo.getBikeSpaces() +
-                    context.getString(R.string.bike_status_content_desc_suffix));
+            String desc = context.getResources().getQuantityString(
+                    R.plurals.bike_status_content_desc,
+                    arrivalInfo.getBikeSpaces(),
+                    arrivalInfo.getBikeSpaces()
+            );
+            bikeStatusBar.setContentDescription(desc);
             UIUtils.setBikeSpaceColor(context, bikes, arrivalInfo.getBikeSpaces());
         } else {
             realtimeView.setVisibility(View.INVISIBLE);
