@@ -22,7 +22,7 @@
     <string name="android_maps_v2_market_url">market://details?id=com.google.android.apps.maps</string>
 
     <!--Bike rack status API-->
-    <string name="bike_rack_api_code">8FPnxWPvytYFiXvnHLop9at6/a1vDVaUtNYvklYJ7hGKSsw/VMSjag==</string>
+    <string name="bike_rack_api_code">m8ObB/aBjRMOOrJv4KaVqrjqjx/gSRs4nCwSO2UgWfRi6Njy7ZAp7w==</string>
 
     <!-- Preference keys -->
     <string name="preference_key_region">preference_region</string>

@@ -55,7 +55,7 @@
         "supportsObaRealtimeApis": true, 
         "contactEmail": "onebusaway@soundtransit.org", 
         "obaBaseUrl": "http://api.pugetsound.onebusaway.org/",
-        "bikeRackBaseUrl": "https://dummy3.azurewebsites.net/api/DummyData",
+        "bikeRackBaseUrl": "https://dummy3.azurewebsites.net/api/OneBusAwayAPI",
         "supportsObaDiscoveryApis": true, 
         "regionName": "Puget Sound", 
         "obaVersionInfo": "1.1.7|1|1|7||c8ee3d4906dd55ecafdd124f31f39c0f54a37b52", 
