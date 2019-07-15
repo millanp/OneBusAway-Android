@@ -307,6 +307,11 @@ android {
 
             release {
                 // Nothing here
+                // TODO: Should this be app/upload-keystore.jks?
+//                storeFile file("upload-keystore.jks")
+//                storePassword System.getenv("KEYSTORE_PASSWORD")
+//                keyAlias System.getenv("KEY_ALIAS")
+//                keyPassword System.getenv("KEY_PASSWORD")
             }
         }
     }
