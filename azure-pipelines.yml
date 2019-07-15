@@ -11,7 +11,7 @@ pool:
 
 steps:
 # Download a secure file to the agent machine
-- task: Gradle@2
+- task: Gradle@1
   inputs:
     workingDirectory: 'onebusaway-android'
     gradleWrapperFile: 'gradlew'
@@ -19,7 +19,7 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: ':onebusaway-android:assembleObaGoogleRelease'
-- task: AndroidSigning@3
+- task: AndroidSigning@1
   inputs:
     apkFiles: '**/*.apk'
     apksign: true
@@ -28,7 +28,14 @@ steps:
     apksignerKeystoreAlias: '$(KEY_ALIAS)'
     apksignerKeyPassword: '$(KEY_PASSWORD)'
     zipalign: true
-
+- task: AppCenterDistribute@1
+  inputs:
+    serverEndpoint: 'Beta Release'
+    appSlug: 'v-miph-microsoft.com/OneBusAway-Bike'
+    appFile: '**/*.apk'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'First attempt to build Android app via pipeline'
+    destinationType: 'groups'
 
 #  Execution failed for task ':onebusaway-android:processAgencyXAmazonDebugResources'.
 #  > Android resource linking failed
