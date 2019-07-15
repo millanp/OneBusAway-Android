@@ -17,7 +17,7 @@ steps:
     gradleOptions: '-Xmx3072m'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
-#    tasks: 'obaGoogleDebug'
+    tasks: ':onebusaway-android:obaGoogleDebug'
 - task: AndroidSigning@3
   inputs:
     apkFiles: '**/*.apk'
@@ -27,3 +27,9 @@ steps:
     apksignerKeystoreAlias: '$(KEY_ALIAS)'
     apksignerKeyPassword: '$(KEY_PASSWORD)'
     zipalign: true
+
+#  Execution failed for task ':onebusaway-android:processAgencyXAmazonDebugResources'.
+#  > Android resource linking failed
+#Output:  /Users/vsts/agent/2.154.1/work/1/s/onebusaway-android/src/main/res/layout-v11/bike_status.xml:11: error: resource color/quantum_googgreen (aka org.agencyx.android:color/quantum_googgreen) not found.
+#/Users/vsts/agent/2.154.1/work/1/s/onebusaway-android/src/main/res/layout-v11/bike_status.xml:25: error: resource color/quantum_googgreen (aka org.agencyx.android:color/quantum_googgreen) not found.
+#error: failed linking file resources.
