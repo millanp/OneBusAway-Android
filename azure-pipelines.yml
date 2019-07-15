@@ -11,10 +11,14 @@ pool:
 
 steps:
 # Download a secure file to the agent machine
-- task: DownloadSecureFile@1
-  name: secureProperties # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+- task: Gradle@2
   inputs:
-    secureFile: 'secure.properties' # The file name or GUID of the secure file
+    workingDirectory: 'onebusaway-android'
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: ':onebusaway-android:assembleObaGoogleRelease'
 - task: AndroidSigning@3
   inputs:
     apkFiles: '**/*.apk'
@@ -24,16 +28,7 @@ steps:
     apksignerKeystoreAlias: '$(KEY_ALIAS)'
     apksignerKeyPassword: '$(KEY_PASSWORD)'
     zipalign: true
-- task: Gradle@2
-  inputs:
-    workingDirectory: 'onebusaway-android'
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: ':onebusaway-android:assembleObaGoogleRelease'
-  env:
-    ORG_GRADLE_PROJECT_secure.properties: $(secureProperties.secureFilePath)
+
 
 #  Execution failed for task ':onebusaway-android:processAgencyXAmazonDebugResources'.
 #  > Android resource linking failed
