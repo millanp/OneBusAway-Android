@@ -11,7 +11,7 @@ pool:
 
 steps:
 # Download a secure file to the agent machine
-- task: Gradle@1
+- task: Gradle@2
   inputs:
     workingDirectory: 'onebusaway-android'
     gradleWrapperFile: 'gradlew'
@@ -19,7 +19,7 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: ':onebusaway-android:assembleObaGoogleRelease'
-- task: AndroidSigning@1
+- task: AndroidSigning@3
   inputs:
     apkFiles: '**/*.apk'
     apksign: true
@@ -28,7 +28,7 @@ steps:
     apksignerKeystoreAlias: '$(KEY_ALIAS)'
     apksignerKeyPassword: '$(KEY_PASSWORD)'
     zipalign: true
-- task: AppCenterDistribute@1
+- task: AppCenterDistribute@3
   inputs:
     serverEndpoint: 'Beta Release'
     appSlug: 'v-miph-microsoft.com/OneBusAway-Bike'
