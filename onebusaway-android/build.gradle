@@ -307,18 +307,24 @@ android {
 
             release {
                 // Nothing here
-                // TODO: Should this be app/upload-keystore.jks?
-//                storeFile file("upload-keystore.jks")
-//                storePassword System.getenv("KEYSTORE_PASSWORD")
-//                keyAlias System.getenv("KEY_ALIAS")
-//                keyPassword System.getenv("KEY_PASSWORD")
+                // TODO MILLAN: Figure out the right place to put this local stuff
+                Properties props = new Properties()
+                props.load(project.rootProject.file('local.properties').newDataInputStream())
+                storeFile file(props.getProperty('keystorePath', ''))
+                keyPassword props.getProperty('keyPassword', '')
+                keyAlias = props.getProperty('keyAlias', '')
+                storePassword props.getProperty('storePassword', '')
+                // TODO MILLAN: This should not be here
             }
         }
     }
 
     buildTypes {
         release {
-            // TODO MILLAN: Figure out how to do this without disrupting OBA code
+            signingConfig signingConfigs.release
+
+            // TODO MILLAN: Figure out how to work with Azure without disrupting OBA code
+            // TODO: Maybe create another build type specific to Azure
 //            signingConfig signingConfigs.release
 //            minifyEnabled true
 //            shrinkResources true
