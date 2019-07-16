@@ -307,14 +307,6 @@ android {
 
             release {
                 // Nothing here
-                // TODO MILLAN: Figure out the right place to put this local stuff
-//                Properties props = new Properties()
-//                props.load(project.rootProject.file('local.properties').newDataInputStream())
-//                storeFile file(props.getProperty('keystorePath', ''))
-//                keyPassword props.getProperty('keyPassword', '')
-//                keyAlias = props.getProperty('keyAlias', '')
-//                storePassword props.getProperty('storePassword', '')
-                // TODO MILLAN: This should not be here
             }
         }
     }
@@ -322,10 +314,10 @@ android {
     buildTypes {
         release {
             // TODO MILLAN: Figure out how to work with Azure without disrupting OBA code
-//            signingConfig signingConfigs.release
-//            minifyEnabled true
-//            shrinkResources true
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
             // TODO: The above should be there in the final version
         }
         // Append the version name to the end of aligned APKs
