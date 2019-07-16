@@ -318,7 +318,7 @@ android {
 //            minifyEnabled true
 //            shrinkResources true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
-            // TODO: The above should be there in the final version
+            // TODO: The above should be there in the final versionomm
         }
         // Append the version name to the end of aligned APKs
         android.applicationVariants.all { variant ->

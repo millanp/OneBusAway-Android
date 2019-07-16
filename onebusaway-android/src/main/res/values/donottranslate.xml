@@ -18,7 +18,10 @@
     <!-- DO NOT TRANSLATE ANY STRINGS IN THIS FILE. -->
 
     <!-- Android Maps API v2 -->
-    <string name="apiv2_key">AIzaSyBxVM57hZ2WLRgtixDs_G5BGbK90mM5S5U</string>
+    <!--TODO MILLAN: The following API key is the original-->
+    <!--<string name="apiv2_key">AIzaSyBxVM57hZ2WLRgtixDs_G5BGbK90mM5S5U</string>-->
+    <!--TODO MILLAN: The following API key is my own-->
+    <string name="apiv2_key">AIzaSyDPAT_MNAn3hdRqnVo7QhDZSEANaqHBxNw</string>
     <string name="android_maps_v2_market_url">market://details?id=com.google.android.apps.maps</string>
 
     <!--Bike rack status API-->
