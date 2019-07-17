@@ -13,7 +13,8 @@ steps:
 # Download a secure file to the agent machine
 - task: Gradle@2
   inputs:
-    workingDirectory: 'onebusaway-android'
+#    workingDirectory: 'onebusaway-android'
+    workingDirectory: ''
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
     publishJUnitResults: false
