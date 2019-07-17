@@ -34,7 +34,7 @@ steps:
     appSlug: 'v-miph-microsoft.com/OneBusAway-Bike'
     appFile: '**/*.apk'
     releaseNotesOption: 'input'
-    releaseNotesInput: 'First attempt to build Android app via pipeline'
+    releaseNotesInput: 'Use new API endpoint'
     destinationType: 'groups'
 
 #  Execution failed for task ':onebusaway-android:processAgencyXAmazonDebugResources'.
