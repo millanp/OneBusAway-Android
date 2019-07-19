@@ -65,7 +65,7 @@ public class ArrivalsListLoader extends AsyncTaskLoader<ObaArrivalInfoResponse> 
                 .newRequest(getContext(), arrivals).call();
         Integer[] bikeStatusArray = bikeResp.getAvailableSpotsArray();
         for (int i = 0; i < arrivals.length; i++) {
-            arrivals[i].setBikeSpaces(bikeStatusArray[i]);
+            arrivals[i].setBikeSpaces(getContext().getResources(), bikeStatusArray[i]);
         }
 
         return resp;

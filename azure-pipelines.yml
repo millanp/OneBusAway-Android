@@ -35,7 +35,7 @@ steps:
     appSlug: 'v-miph-microsoft.com/OneBusAway-Bike'
     appFile: '**/*.apk'
     releaseNotesOption: 'input'
-    releaseNotesInput: 'Use new API endpoint'
+    releaseNotesInput: 'Accept bike count -1 as a "status not available" indicator'
     destinationType: 'groups'
 
 #  Execution failed for task ':onebusaway-android:processAgencyXAmazonDebugResources'.

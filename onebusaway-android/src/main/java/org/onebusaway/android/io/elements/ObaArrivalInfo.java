@@ -15,6 +15,8 @@
  */
 package org.onebusaway.android.io.elements;
 
+import android.content.res.Resources;
+
 import org.onebusaway.android.R;
 
 import java.io.Serializable;
@@ -342,9 +344,9 @@ public final class ObaArrivalInfo implements Serializable{
 
     public int getBikeSpaces() { return bikeSpaces; }
 
-    public void setBikeSpaces(int newBikeSpaces) {
-        if (newBikeSpaces < 0 || newBikeSpaces > R.integer.max_bikes) {
-            throw new IllegalArgumentException("Bike count must be between zero and three");
+    public void setBikeSpaces(Resources r, int newBikeSpaces) {
+        if (newBikeSpaces < -1 || newBikeSpaces > r.getInteger(R.integer.max_bikes)) {
+            throw new IllegalArgumentException("Bike count must be between -1 and 3");
         }
         bikeSpaces = newBikeSpaces;
     }

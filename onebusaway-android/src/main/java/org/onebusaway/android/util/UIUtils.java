@@ -68,6 +68,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.location.Location;
 import android.media.ExifInterface;
+import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -2004,11 +2005,17 @@ public final class UIUtils {
     }
 
     public static void setBikeSpaceColor(Context context, ImageView[] bikes, int spacesAvailable) {
-        for (ImageView bike : bikes) {
-            ImageViewCompat.setImageTintList(bike, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.quantum_googgreen)));
-        }
-        for (int i = bikes.length; i > spacesAvailable; i--) {
-            ImageViewCompat.setImageTintList(bikes[i-1], ColorStateList.valueOf(ContextCompat.getColor(context, R.color.shortcut_background)));
+        if (spacesAvailable >= 0) {
+            for (ImageView bike : bikes) {
+                ImageViewCompat.setImageTintList(bike, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.quantum_googgreen)));
+            }
+            for (int i = bikes.length; i > spacesAvailable; i--) {
+                ImageViewCompat.setImageTintList(bikes[i - 1], ColorStateList.valueOf(ContextCompat.getColor(context, R.color.shortcut_background)));
+            }
+        } else {
+            for (ImageView bike : bikes) {
+                ImageViewCompat.setImageTintList(bike, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.shortcut_icon)));
+            }
         }
     }
 }

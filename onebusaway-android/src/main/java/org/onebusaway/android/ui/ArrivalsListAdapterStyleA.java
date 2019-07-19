@@ -118,18 +118,19 @@ public class ArrivalsListAdapterStyleA extends ArrivalsListAdapterBase<ArrivalIn
             UIUtils.setRealtimeIndicatorColorByResourceCode(realtimeView, colorCode,
                     android.R.color.transparent);
             realtimeView.setVisibility(View.VISIBLE);
-            bikeStatusBar.setVisibility(View.VISIBLE);
-            String desc = context.getResources().getQuantityString(
-                    R.plurals.bike_status_content_desc,
-                    arrivalInfo.getBikeSpaces(),
-                    arrivalInfo.getBikeSpaces()
-            );
-            bikeStatusBar.setContentDescription(desc);
-            UIUtils.setBikeSpaceColor(context, bikes, arrivalInfo.getBikeSpaces());
         } else {
             realtimeView.setVisibility(View.INVISIBLE);
-            bikeStatusBar.setVisibility(View.INVISIBLE);
         }
+
+        bikeStatusBar.setVisibility(View.VISIBLE);
+        String desc = context.getResources().getQuantityString(
+                R.plurals.bike_status_content_desc,
+                arrivalInfo.getBikeSpaces(),
+                arrivalInfo.getBikeSpaces()
+        );
+        bikeStatusBar.setContentDescription(desc);
+        UIUtils.setBikeSpaceColor(context, bikes, arrivalInfo.getBikeSpaces());
+
 
         etaView.setTextColor(color);
         minView.setTextColor(color);
