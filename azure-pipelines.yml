@@ -32,10 +32,10 @@ steps:
 - task: AppCenterDistribute@3
   inputs:
     serverEndpoint: 'Beta Release'
-    appSlug: 'v-miph-microsoft.com/OneBusAway-Bike'
+    appSlug: 'Foundry99/OneBusAway-MURS'
     appFile: '**/*.apk'
     releaseNotesOption: 'input'
-    releaseNotesInput: 'Accept bike count -1 as a "status not available" indicator'
+    releaseNotesInput: 'First release of OneBusAway-MURS'
     destinationType: 'groups'
 
 #  Execution failed for task ':onebusaway-android:processAgencyXAmazonDebugResources'.
