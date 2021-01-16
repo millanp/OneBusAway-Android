@@ -1289,6 +1289,7 @@ public final class UIUtils {
             }
         }
 
+        list.add("Demo: Active Trip");
         return list;
     }
 
@@ -1311,6 +1312,7 @@ public final class UIUtils {
         }
         list.add(R.drawable.ic_arrivals_styleb_action_map);
         list.add(R.drawable.ic_trip_details);
+
         list.add(R.drawable.ic_drawer_alarm);
         list.add(R.drawable.ic_content_filter_list);
         if (hasUrl) {
@@ -1324,6 +1326,7 @@ public final class UIUtils {
         if (occupancy != null) {
             list.add(R.drawable.ic_occupancy);
         }
+        list.add(R.drawable.ic_trip_details);
         return list;
     }
 

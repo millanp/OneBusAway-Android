@@ -47,6 +47,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.onebusaway.android.R;
@@ -808,6 +814,28 @@ public class ArrivalsListFragment extends ListFragment
                             getActivity().getString(R.string.analytics_label_button_press_about_occupancy),
                             null);
                     createOccupancyDialog(occupancyState).show();
+                } else if (which == 8) {
+                    RequestQueue q = Volley.newRequestQueue(getContext());
+                    String url = "https://onebusaway-bike-service.azurewebsites.net/api/SwitchBus?code=o8PNIqepvQ7GlUkCARJOkGdSGdeavaHFiBFWg84MFM7OSI0fE6Wuog==";
+                    String vehicleID = arrivalInfo.getInfo().getVehicleId();
+                    url += "&bus=" + vehicleID;
+                    StringRequest strReq = new StringRequest(Request.Method.GET, url,
+                            new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(getContext(),
+                                    "Set to vehicle ID " + vehicleID,
+                                    Toast.LENGTH_SHORT
+                            ).show();
+
+                        }
+                        }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("got error", "ERR");
+                        }
+                    });
+                    q.add(strReq);
                 }
             }
         });

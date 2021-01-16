@@ -314,7 +314,7 @@ android {
     buildTypes {
         release {
             // TODO MILLAN: Figure out how to work with Azure without disrupting OBA code
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
